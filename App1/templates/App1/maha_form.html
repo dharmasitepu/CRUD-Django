@@ -1,0 +1,28 @@
+{%extends "App1/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.nama|as_crispy_field}}
+    {{form.NIM|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.kelas|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{form.jkelamin|as_crispy_field}}
+        </div>
+    </div>
+        <div class="col-md-20">
+            <button type="Submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-save"></i> Simpan Data 
+            </button>
+        </div>
+        <div class="col-md-20" style="padding-top: 10px;">
+            <a href="{% url 'maha_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Data Mahasiswa
+            </a>
+        </div>
+
+</form>
+{% endblock content %}
